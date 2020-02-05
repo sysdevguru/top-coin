@@ -32,7 +32,7 @@ curl localhost:8080/api/v1/coins/list?limit=10
 
 All currencies.  
 ```sh
-curl -X POST localhost:8080/api/v1/coins/list
+curl localhost:8080/api/v1/coins/list
 ```
 
 ## What I want to do more or in other way
