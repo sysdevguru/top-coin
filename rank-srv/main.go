@@ -37,18 +37,10 @@ func getUpdates() {
 
 func main() {
 	cha := make(chan int)
-	getUpdates()
 
 	go func() {
-		checkTicker := time.NewTicker(time.Duration(checkInterval) * time.Minute)
-		defer checkTicker.Stop()
-
-		for {
-			time.Sleep(time.Second)
-			select {
-			case <-checkTicker.C:
-				getUpdates()
-			}
+		for c := time.Tick(time.Duration(checkInterval) * time.Minute);; <-c {
+			getUpdates()
 		}
 	}()
 	<-cha
