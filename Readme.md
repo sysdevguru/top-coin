@@ -27,7 +27,7 @@ docker-compose up --remove-orphans
 From other Termial or Postman  
 Top 10 ranked currency.  
 ```sh
-curl -X POST localhost:8080/api/v1/coins/list?limit=10
+curl localhost:8080/api/v1/coins/list?limit=10
 ```
 
 All currencies.  

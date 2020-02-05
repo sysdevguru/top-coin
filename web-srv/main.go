@@ -23,7 +23,7 @@ func main() {
 	// coin endpoints
 	coinEndpoints := app.Party("/api/v1/coins", crs).AllowMethods(iris.MethodOptions)
 	{
-		coinEndpoints.Post("/list", controller.ListCoins)
+		coinEndpoints.Get("/list", controller.ListCoins)
 	}
 
 	// run listener
