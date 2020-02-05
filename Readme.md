@@ -20,7 +20,8 @@ Ranking service and Pricing service make requests to each information provider e
 They fetch ranking and pricing informations from its providers and stores informations into `price_info` and `rank_info` tables.  
 
 ## Prerequisites
-### Docker, Docker Compose
+### Golang, Docker, Docker Compose
+https://golang.org/doc/install  
 https://docs.docker.com/install  
 https://docs.docker.com/compose/install  
 
@@ -31,8 +32,7 @@ cd $GOPATH/src/github.com/sysdevguru/top-coin
 docker-compose up --remove-orphans
 ```
 
-From other Termial or Postman  
-Top 10 ranked currency.  
+From other Termial, Top 10 ranked currency.  
 ```sh
 curl localhost:8080/api/v1/coins/list?limit=10
 ```
