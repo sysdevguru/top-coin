@@ -9,6 +9,13 @@ Using free subscription, we just have to request frequently to the server to fet
 I am asked to show only top 200 cryptocurrencies only in case limit is not mentioned in the request.  
 
 ### Implementation
+All the services share the PostgreSQL database in this solution.  
+I don't use any IPC for this solution because of the requirement of this task.  
+Data trasfer via IPCs such as gRPC, socket, Pubsub can not be positive solutions since this application has to expose endpoint to show the coin informations.  
+If we implement Pubsub, making Ranking service and Pricing service as publisher and http server as a subscriber, http server has to store the received data into DB.  
+So that user can access to data at anytime.  
+Publishers can store the information into DB but that sounds duplicated work regarding the DB operations.  
+
 Ranking service and Pricing service make requests to each information provider every 1 minute.  
 They fetch ranking and pricing informations from its providers and stores informations into `price_info` and `rank_info` tables.  
 
