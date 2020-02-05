@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  web-srv: 
+    image: golang:1.11
+    volumes: 
+      - ./web-srv:/usr/src/web-srv
+    working_dir: /usr/src/web-srv
+    depends_on: 
+      - postgresql
+    links:
+      - postgresql
+    ports:
+      - 8080:8080
+    command: bash -c "cd /usr/src/web-srv/ && make all"
+  price-srv:
+    image: golang:1.11
+    volumes: 
+      - ./price-srv:/usr/src/price-srv
+    working_dir: /usr/src/price-srv
+    depends_on: 
+      - postgresql
+    links:
+      - postgresql
+    command: bash -c "cd /usr/src/price-srv/ && make deps && make all"
+  rank-srv:
+    image: golang:1.11
+    volumes: 
+      - ./rank-srv:/usr/src/rank-srv
+    working_dir: /usr/src/rank-srv
+    depends_on: 
+      - postgresql
+    links:
+      - postgresql
+    command: bash -c "cd /usr/src/rank-srv/ && make deps && make all"  
+  postgresql:
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_DB=coindb
+      - POSTGRES_USER=wattx
+      - POSTGRES_PASSWORD=rootroot
+    volumes:
+      - ./scripts/db:/docker-entrypoint-initdb.d/
