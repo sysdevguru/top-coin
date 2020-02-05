@@ -12,12 +12,19 @@ I am asked to show only top 200 cryptocurrencies only in case limit is not menti
 Ranking service and Pricing service make requests to each information provider every 1 minute.  
 They fetch ranking and pricing informations from its providers and stores informations into `price_info` and `rank_info` tables.  
 
+## Prerequisites
+### Docker, Docker Compose
+https://docs.docker.com/install  
+https://docs.docker.com/compose/install  
+
 ## How to run
 ```sh
 go get github.com/sysdevguru/top-coin
 cd $GOPATH/src/github.com/sysdevguru/top-coin
 docker-compose up --remove-orphans
 ```
+
+From other Termial or Postman  
 Top 10 ranked currency.  
 ```sh
 curl -X POST localhost:8080/api/v1/coins/list?limit=10
