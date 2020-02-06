@@ -8,6 +8,8 @@ Using free subscription, we just have to request frequently to the server to fet
 
 I am asked to show only top 200 cryptocurrencies only in case limit is not mentioned in the request.  
 
+Note: Free subscription of CoinMarketCap API limits daily requests. So it will not be able to fetch after a limited amount of request.  
+
 ### Implementation
 All the services share the PostgreSQL database in this solution.  
 I don't use any IPC for this solution because of the requirement of this task.  
