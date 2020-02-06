@@ -10,10 +10,11 @@ import (
 func ListCoins(ctx iris.Context) {
 	// get limit
 	limit := ctx.FormValue("limit")
+	top := ctx.FormValue("top")
 
 	// get coins and respond
 	var coin model.Coin
-	coins, err := coin.GetTopCoins(limit)
+	coins, err := coin.GetTopCoins(limit, top)
 	if err != nil {
 		util.SendResponse(ctx, iris.StatusInternalServerError, nil)
 		return
