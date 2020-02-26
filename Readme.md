@@ -72,6 +72,11 @@ To get Top 20 fully available coin informations.
 curl 'localhost:8080/api/v1/coins/list?limit=20?top=true'
 ```
 
+To get response in csv format we can use `type` parameter.
+```sh
+curl 'localhost:8080/api/v1/coins/list?limit=20?type=csv'
+```
+
 ## What I want to do more or in other way
 ### Docker images
 I would like to make each service as docker image and commit to dockerhub.  
@@ -86,4 +91,4 @@ In this yaml file, we can store postgres credential, API key, Check interval etc
 ### Http Response
 I can add more details in the http response regarding the error case.  
 ### Daemonize
-I would likt to daemonize the Pricing service [price-srv] and Ranking service [rank-srv].
+I would like to daemonize the Pricing service [price-srv] and Ranking service [rank-srv].
