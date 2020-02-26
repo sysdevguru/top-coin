@@ -2,7 +2,6 @@ package dbmanager
 
 import (
 	"fmt"
-	"database/sql"
 
 	"github.com/sysdevguru/top-coin/rank-srv/db"
 )
@@ -15,14 +14,7 @@ type Currency struct {
 
 // StoreRanks stores ranks into DB
 func (c *Currency) StoreRanks() error {
-	var rank int
-	query := "SELECT coin_rank FROM rank_info WHERE coin_symbol = '" + c.Symbol + "'"
-	err := db.WDB.QueryRow(query).Scan(&rank)
-	if err == sql.ErrNoRows {
-		query = "INSERT INTO rank_info (coin_rank, coin_symbol) VALUES($1, $2)"
-	} else {
-		query = "UPDATE rank_info SET coin_rank = $1 WHERE coin_symbol = $2"
-	}
+	query := "INSERT INTO rank_info(coin_rank, coin_symbol) VALUES($1, $2) ON CONFLICT ON CONSTRAINT rank_symbol DO UPDATE SET coin_rank = $1 WHERE rank_info.coin_symbol = $2"
 
 	stmt, err := db.WDB.Prepare(query)
 	if err != nil {

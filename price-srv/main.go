@@ -10,7 +10,7 @@ import (
 )
 
 var (
-	token         = "97dcc3a8-ea8b-4488-889d-6433446d3193"
+	token         = "d9fde6b1-7596-46cc-8018-2557fefeb53d"
 	checkInterval = 1
 )
 
@@ -41,7 +41,7 @@ func main() {
 
 	go func() {
 		go func() {
-			for c := time.Tick(time.Duration(checkInterval) * time.Minute);; <-c {
+			for c := time.Tick(time.Duration(checkInterval) * time.Minute); ; <-c {
 				getUpdates()
 			}
 		}()

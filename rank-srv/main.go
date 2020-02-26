@@ -39,7 +39,7 @@ func main() {
 	cha := make(chan int)
 
 	go func() {
-		for c := time.Tick(time.Duration(checkInterval) * time.Minute);; <-c {
+		for c := time.Tick(time.Duration(checkInterval) * time.Minute); ; <-c {
 			getUpdates()
 		}
 	}()
