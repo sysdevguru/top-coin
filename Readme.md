@@ -69,12 +69,12 @@ curl 'localhost:8080/api/v1/coins/list'
 
 To get Top 20 fully available coin informations.  
 ```sh
-curl 'localhost:8080/api/v1/coins/list?limit=20?top=true'
+curl 'localhost:8080/api/v1/coins/list?limit=20&top=true'
 ```
 
 To get response in csv format we can use `type` parameter.
 ```sh
-curl 'localhost:8080/api/v1/coins/list?limit=20?type=csv'
+curl 'localhost:8080/api/v1/coins/list?limit=20&type=csv'
 ```
 
 ## What I want to do more or in other way
