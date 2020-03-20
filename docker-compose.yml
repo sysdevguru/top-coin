@@ -1,5 +1,6 @@
 version: '3'
 
+<<<<<<< HEAD
 services:
   web-srv: 
     image: sysdevguru/coin-web-srv:v1.0
@@ -24,3 +25,38 @@ services:
       - POSTGRES_PASSWORD=rootroot
     volumes:
       - ./scripts/db:/docker-entrypoint-initdb.d/
+=======
+services: 
+    web-srv:
+        image: sysdevguru/coin-web-srv:v1.1
+        depends_on: 
+            - postgresql
+        ports:
+            - 8080:8080
+        networks: 
+            - coin_net
+    rank-srv:
+        image: sysdevguru/coin-rank-srv:v1.1
+        depends_on: 
+            - postgresql
+        networks: 
+            - coin_net
+    price-srv:
+        image: sysdevguru/coin-price-srv:v1.1
+        depends_on: 
+            - postgresql
+        networks: 
+            - coin_net
+    postgresql:
+        image: postgres:latest
+        restart: always
+        env_file: 
+            - .env
+        volumes:
+            - ./scripts/db:/docker-entrypoint-initdb.d/
+        networks: 
+            - coin_net
+
+networks: 
+    coin_net:
+>>>>>>> 7f7e8d4af5e10dfb4ce19cf1b89279ea603ef8b6

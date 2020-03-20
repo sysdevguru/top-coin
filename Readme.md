@@ -21,5 +21,13 @@ curl 'localhost:8080/api/v1/coins/list'
 
 To get Top 20 fully available coin informations.  
 ```sh
-curl 'localhost:8080/api/v1/coins/list?limit=20?top=true'
+curl 'localhost:8080/api/v1/coins/list?limit=20&top=true'
 ```
+<<<<<<< HEAD
+=======
+
+To get response in csv format we can use `type` parameter.
+```sh
+curl 'localhost:8080/api/v1/coins/list?limit=20&type=csv'
+```
+>>>>>>> 7f7e8d4af5e10dfb4ce19cf1b89279ea603ef8b6
